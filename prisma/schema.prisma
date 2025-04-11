@@ -23,12 +23,40 @@ model User {
   createdAt     DateTime
   updatedAt     DateTime
   sessions      Session[]
+
+  age                 Int?
+  incomeLevel         String?
+  riskProfile         String?
+  goals               String?
+  investmentExperience String?
+  preferredLanguages  String?
+
+  monthlySavings      Int?
+  investmentDuration  String?
+  location            String?
+  employmentType      String?
+  dependentsCount     Int?
+  isTaxSavingPriority Boolean?
+
+  recomandations Recommendation[]
+
   accounts      Account[]
 
   @@unique([email])
   @@map("user")
  chatSessions ChatSession[]
 }
+
+model Recommendation {
+  id          String   @id @default(cuid())
+  userId      String
+  product     String   // e.g. "SBI Bluechip Fund"
+  reason      String   // why it was recommended
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+
 
 model ChatSession {
   id        String    @id @default(uuid())

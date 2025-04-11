@@ -30,3 +30,15 @@ export async function getAudioTranscript(filePath: string, mimeType: string) {
   
 
 }
+
+export async function AIRecomandations(prompt:string,maxOut=512,temp=0.7) {
+  const response = await ai.models.generateContent({
+    model: "gemini-2.0-flash",
+    contents: prompt,
+    config:{
+      maxOutputTokens: maxOut,
+       temperature: temp
+    }
+  });
+  return response.text
+}

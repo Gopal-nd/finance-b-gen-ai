@@ -16,6 +16,8 @@ import {
   CircleDollarSign,
   Bot,
   AudioLines,
+  CircleUser,
+  UserRound,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -49,12 +51,20 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <span>Home</span>
         </Link>
         <Link
-          href="/dashboard/profile"
+          href="/dashboard/user-profile"
           className="flex items-center space-x-2 px-4 py-2 rounded-lg"
           onClick={handleLinkClick}
         >
-          <UserRoundPen className="h-5 w-5 text-primary" />
+          <UserRound    className="h-5 w-5 text-primary" />
           <span>Profile</span>
+        </Link>
+        <Link
+          href="/dashboard/recommend"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <UserRound    className="h-5 w-5 text-primary" />
+          <span>Recomandations</span>
         </Link>
         <Link
           href="/dashboard/chat"
@@ -71,6 +81,15 @@ export default function Component({ children }: { children: React.ReactNode }) {
         >
           <AudioLines   className="h-5 w-5 text-primary" />
           <span>Voice</span><Badge>new</Badge>
+        </Link>
+    
+        <Link
+          href="/dashboard/account"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <CircleUser  className="h-5 w-5 text-primary" />
+          <span>My Account</span>
         </Link>
       </div>
       <div className="flex items-start">
