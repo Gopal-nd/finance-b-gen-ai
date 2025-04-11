@@ -17,6 +17,8 @@ interface Message {
 export default function FinanceAssistant() {
     const { data } = authClient.useSession();
     const user = data?.user;
+
+
     const [messages, setMessages] = useState([
         {
             role: "model",
@@ -34,6 +36,7 @@ export default function FinanceAssistant() {
             (msg) => msg.role === "user" || (msg.role === "model" && msg.text !==  "Hi there! I'm your finance assistant. How can I help you today?")
         );
 
+        console.log(historyToSend)
         setMessages((prev) => [...prev, userMessage]);
         setInput("");
         setIsLoading(true);

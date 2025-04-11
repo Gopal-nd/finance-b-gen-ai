@@ -15,6 +15,7 @@ import {
   UserRoundPen,
   CircleDollarSign,
   Bot,
+  AudioLines,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -63,7 +64,14 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <Bot  className="h-5 w-5 text-primary" />
           <span>Chat</span><Badge>new</Badge>
         </Link>
-       
+        <Link
+          href="/dashboard/voice"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <AudioLines   className="h-5 w-5 text-primary" />
+          <span>Voice</span><Badge>new</Badge>
+        </Link>
     
       </div>
       <div className="flex items-start">

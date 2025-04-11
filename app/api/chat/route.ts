@@ -1,7 +1,17 @@
 import { genAI } from "@/lib/ai";
 import { GoogleGenAI } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
+
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
+ 
 export async function POST(req: NextRequest) {
+  const session = await auth.api.getSession({
+      headers: await headers() // you need to pass the headers object.
+  })
+
+  const userd = session?.user.id
+  console.log(userd)
   try {
     const body = await req.json();
     const { history } = body;
