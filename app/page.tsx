@@ -19,7 +19,7 @@ const HomePage = () => {
       <ModeToggle />
       <Button>let's Start </Button>
       <p>{JSON.stringify(session)}</p>
-      {session?<Link href={'/dashboard'}> <Button >Dashboard</Button></Link>:<Link href={'/sign-in'}> <Button >Logi</Button></Link>}
+      {session?<Link href={'/dashboard'}> <Button >Dashboard</Button></Link>:<Link href={'/sign-in'}> <Button >Login</Button></Link>}
      { session  &&<LogoutButton />}
     </div>
   )

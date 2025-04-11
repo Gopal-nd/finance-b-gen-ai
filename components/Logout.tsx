@@ -19,7 +19,7 @@ export function LogoutButton() {
 
   return (
     <Button onClick={handleSignOut} className="px-4 py-2">
-      Sign Out
+      Logout
     </Button>
   );
 }
