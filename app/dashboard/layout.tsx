@@ -72,7 +72,6 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <AudioLines   className="h-5 w-5 text-primary" />
           <span>Voice</span><Badge>new</Badge>
         </Link>
-    
       </div>
       <div className="flex items-start">
        <Button onClick={async()=>{
