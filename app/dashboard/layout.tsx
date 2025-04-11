@@ -14,6 +14,7 @@ import {
   ChevronRight,
   UserRoundPen,
   CircleDollarSign,
+  Bot,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -53,6 +54,14 @@ export default function Component({ children }: { children: React.ReactNode }) {
         >
           <UserRoundPen className="h-5 w-5 text-primary" />
           <span>Profile</span>
+        </Link>
+        <Link
+          href="/dashboard/chat"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <Bot  className="h-5 w-5 text-primary" />
+          <span>Chat</span><Badge>new</Badge>
         </Link>
        
     

@@ -27,7 +27,18 @@ model User {
 
   @@unique([email])
   @@map("user")
+  Chat GeneralChat[]
 }
+
+model GeneralChat {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  message   String
+  response  String   
+  createdAt DateTime @default(now())
+}
+
 
 model Session {
   id        String   @id
