@@ -6,7 +6,7 @@ export const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
 
 
 
-const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY! });
+export const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY! });
 
 export async function getAudioTranscript(filePath: string, mimeType: string) {
   const fileData = fs.readFileSync(filePath, { encoding: "base64" });
@@ -31,13 +31,13 @@ export async function getAudioTranscript(filePath: string, mimeType: string) {
 
 }
 
-export async function AIRecomandations(prompt:string,maxOut=512,temp=0.7) {
-  const response = await ai.models.generateContent({
+export async function AIRecomandations(prompt:string) {
+  const response = await genAI.models.generateContent({
     model: "gemini-2.0-flash",
     contents: prompt,
     config:{
-      maxOutputTokens: maxOut,
-       temperature: temp
+      maxOutputTokens: 500,
+       temperature: 0.7
     }
   });
   return response.text

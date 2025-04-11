@@ -18,6 +18,7 @@ import {
   AudioLines,
   CircleUser,
   UserRound,
+  BanknoteArrowUp,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -63,8 +64,8 @@ export default function Component({ children }: { children: React.ReactNode }) {
           className="flex items-center space-x-2 px-4 py-2 rounded-lg"
           onClick={handleLinkClick}
         >
-          <UserRound    className="h-5 w-5 text-primary" />
-          <span>Recomandations</span>
+          <BanknoteArrowUp     className="h-5 w-5 text-primary" />
+          <span>AI Recommand</span>
         </Link>
         <Link
           href="/dashboard/chat"

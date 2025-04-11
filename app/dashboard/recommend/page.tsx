@@ -12,7 +12,7 @@ import { authClient } from '@/lib/auth-client'
 interface Rec {
   id: string
   product: string
-  rationale: string
+  reason: string
 }
 
 export default function RecommendPage() {
@@ -25,7 +25,9 @@ export default function RecommendPage() {
   const fetchRecs = async () => {
     setLoading(true)
     const res = await fetch('/api/recommend')
-    setRecs(await res.json())
+    const data = await res.json()
+   console.log(data) 
+   data && setRecs(data)
     setLoading(false)
   }
 
@@ -70,11 +72,14 @@ export default function RecommendPage() {
       </div>
 
       <div className="space-y-4">
-        {recs.map((r) => (
+        {recs ?recs.map((r) => (
           <Card key={r.id}>
             <CardContent>
+              <div>
+
               <h3 className="text-lg font-semibold">{r.product}</h3>
-              <p>{r.rationale}</p>
+              <p>{r.reason}</p>
+              </div>
             </CardContent>
             <CardFooter>
               <Button variant="destructive" size="sm" onClick={() => handleDelete(r.id)}>
@@ -82,7 +87,7 @@ export default function RecommendPage() {
               </Button>
             </CardFooter>
           </Card>
-        ))}
+        )): <p>No recommendations found</p>}
       </div>
 
       <div className="border-t pt-4 space-y-2">
