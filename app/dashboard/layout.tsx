@@ -19,6 +19,7 @@ import {
   CircleUser,
   UserRound,
   BanknoteArrowUp,
+  Calculator,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -83,7 +84,15 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <AudioLines   className="h-5 w-5 text-primary" />
           <span>Voice</span><Badge>new</Badge>
         </Link>
-    
+        <Link
+          href="/dashboard/calculators"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <Calculator   className="h-5 w-5 text-primary" />
+          <span>calculators</span>
+        </Link>
+        
         <Link
           href="/dashboard/account"
           className="flex items-center space-x-2 px-4 py-2 rounded-lg"
