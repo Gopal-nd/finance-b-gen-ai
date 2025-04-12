@@ -1,28 +1,27 @@
 'use client'
-import { LogoutButton } from '@/components/Logout'
-import { ModeToggle } from '@/components/ModeToggle'
-import { Button } from '@/components/ui/button'
-import { authClient } from '@/lib/auth-client'
-import Link from 'next/link'
-import React from 'react'
 
-const HomePage = () => {
 
-  const { 
-    data: session, 
-    isPending, //loading state
-    error, //error object
-    refetch //refetch the session
-} = authClient.useSession() 
+
+
+import Navbar from '@/components/landingPage/navbar'
+import FeaturesGrid from '@/components/landingPage/features-grid'
+import HeroSection from '@/components/landingPage/hero-section'
+import ProductDemo from '@/components/landingPage/product-demo'
+import Testimonials from '@/components/landingPage/testimonials'
+import HowItWorks from '@/components/landingPage/how-it-works'
+import FinalCTA from '@/components/landingPage/final-cta'
+import Footer from '@/components/landingPage/footer'
+
+
+export default function Home() {
   return (
-    <div>
-      <ModeToggle />
-      <Button>let's Start </Button>
-      <p>{JSON.stringify(session)}</p>
-      {session?<Link href={'/dashboard'}> <Button >Dashboard</Button></Link>:<Link href={'/sign-in'}> <Button >Login</Button></Link>}
-     { session  &&<LogoutButton />}
-    </div>
+    <main className="min-h-screen">
+         <Navbar />
+      <HeroSection />
+      <FeaturesGrid />
+      <HowItWorks />
+      <FinalCTA />
+      <Footer />
+    </main>
   )
 }
-
-export default HomePage

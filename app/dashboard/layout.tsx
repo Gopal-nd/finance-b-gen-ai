@@ -141,7 +141,7 @@ export default function Component({ children }: { children: React.ReactNode }) {
         <div className="flex gap-10">
           <Link href="/dashboard" className="flex items-center space-x-2">
             <span className="text-2xl font-bold text-primary flex gap-1 items-center">
-            <CircleDollarSign /> FinanceAI
+            <CircleDollarSign /> FinGenAI
             </span>
           </Link>
           {isLargeScreen && (
