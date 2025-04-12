@@ -18,11 +18,15 @@ export default function FinanceAssistant() {
     const { data } = authClient.useSession();
     const user = data?.user;
 
-
+    const greetingMessage = {
+        role: "model",
+        text: `Hi ${user?.name}! I'm your finance assistant. How can I help you today?`,
+    };
+        
     const [messages, setMessages] = useState([
         {
             role: "model",
-            text: "Hi there! I'm your finance assistant. How can I help you today?",
+            text: `Hi ${user?.name}! I'm your finance assistant. How can I help you today?`,
         },
     ]);
     const [input, setInput] = useState("");
@@ -33,7 +37,7 @@ export default function FinanceAssistant() {
 
         const userMessage = { role: "user", text: input };
         const historyToSend = [...messages, userMessage].filter(
-            (msg) => msg.role === "user" || (msg.role === "model" && msg.text !==  "Hi there! I'm your finance assistant. How can I help you today?")
+            (msg) => msg.role === "user" || (msg.role === "model" && msg.text !== `Hi ${user?.name}! I'm your finance assistant. How can I help you today?`)
         );
 
         console.log(historyToSend)
@@ -84,7 +88,7 @@ export default function FinanceAssistant() {
                 {messages.map((msg, i) => (
                     <>
                      <ChatMessage key={i} content={msg.text} sender={msg.role} user={user} id={0} />
-                                    </>
+                     </>
                 ))}
             </div>
             <div className="flex items-center gap-2">

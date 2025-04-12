@@ -35,8 +35,11 @@ export async function POST(request: NextRequest) {
     // Then, generate a response to the transcript
     const chatResult = await model.generateContent({
       contents: [
-        { role: 'user', parts: [{ text: transcript }] }
-      ]
+        { role: 'user', parts: [{ text: transcript + 'Only respond to finance-related queries such as savings, investments, budgeting, banking, loans, real estate, stocks, crypto, debt, PF, and other financial products. If the user asks about anything outside these topics, politely explain that you can only assist with finance-related matters. Always keep responses simple, clear, and easy to understand  if not the finace topic send the message i can only assist with finance ' }] }
+      ],
+      generationConfig: {
+        maxOutputTokens: 100, 
+      }
     });
     
     const aiResponse = chatResult.response.text();

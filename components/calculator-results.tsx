@@ -10,7 +10,7 @@ import {
   calculateHomeLoan,
   calculateRetirement,
 } from "@/lib/calculator-functions"
-import { CalculatorChart } from "@/components/calculator-chart"
+
 import { CalculatorDetailsTable } from "@/components/calculator-details-table"
 import { CalculatorSummary } from "@/components/calculator-summary"
 
@@ -115,7 +115,7 @@ export function CalculatorResults({ calculatorId, values, showResults, viewType 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
       {viewType === "summary" && <CalculatorSummary calculatorId={calculatorId} results={results} />}
-      {viewType === "chart" && <CalculatorChart calculatorId={calculatorId} results={results} />}
+ 
       {viewType === "details" && <CalculatorDetailsTable calculatorId={calculatorId} results={results} />}
     </motion.div>
   )

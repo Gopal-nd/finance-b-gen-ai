@@ -87,52 +87,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          <motion.div
-            variants={imageVariants}
-            className="flex-1 relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700"
-          >
-            <div className="aspect-video bg-gray-100 dark:bg-gray-800 relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-r from-emerald-500/10 to-blue-500/10 dark:from-emerald-500/20 dark:to-blue-500/20 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    <img
-                      src="/placeholder.svg?height=400&width=600"
-                      alt="FinGenAI Demo"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="w-16 h-16 bg-emerald-600 dark:bg-emerald-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-colors"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-8 w-8 text-white"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+      
         </motion.div>
       </div>
     </section>

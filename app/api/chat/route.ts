@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
+import prisma from "@/lib/prisma";
  
 export async function POST(req: NextRequest) {
   const session = await auth.api.getSession({
@@ -23,16 +24,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Prepend system instruction
+    const user = await prisma.user.findUnique({
+      where:{
+        id:userd
+      },select:{
+        goals:true,
+        incomeLevel:true,
+        age:true,
+        employmentType:true,
+        investmentExperience:true,
+        location:true,
+        monthlySavings:true,
+        investmentDuration:true,
+        isTaxSavingPriority:true,
+        name:true,
+      }
+    })
+
+
     const systemPrompt = {
       role: "user",
       parts: [
         {
-          text:
-            "You are a financial assistant. Only respond to finance-related questions such as savings, investments, budgeting, crypto, stock market, etc. If the user's query is not finance-related, respond politely saying you can only help with finance-related topics. and make sure it should be easy to understand simple",
+          text: `You are a financial assistant speaking to ${user}. Only respond to finance-related queries such as savings, investments, budgeting, banking, loans, real estate, stocks, crypto, debt, PF, and other financial products. If the user asks about anything outside these topics, politely explain that you can only assist with finance-related matters. Always keep responses simple, clear, and easy to understand.`,
         },
       ],
     };
+    
 
     const chat = genAI.chats.create({
       model: "gemini-2.0-flash",
@@ -41,7 +59,7 @@ export async function POST(req: NextRequest) {
         parts: [{ text: msg.text }],
       }))],
       config: {
-        maxOutputTokens: 500,
+        maxOutputTokens: 200,
         temperature: 0.9,
       },
     });
