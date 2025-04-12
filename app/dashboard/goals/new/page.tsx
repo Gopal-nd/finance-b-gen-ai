@@ -134,7 +134,7 @@ export default function NewGoalPage() {
   return (
     <div className="container mx-auto py-10 px-4 md:px-6">
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="mb-8">
-        <Button variant="ghost" onClick={() => router.push("/goals")} className="mb-4">
+        <Button variant="ghost" onClick={() => router.push("/dashboard/goals")} className="mb-4">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Goals
         </Button>
 
@@ -331,7 +331,7 @@ export default function NewGoalPage() {
               )}
             </CardContent>
             <CardFooter className="flex justify-end gap-4">
-              <Button variant="outline" onClick={() => router.push("/goals")}>
+              <Button variant="outline" onClick={() => router.push("/dashboard/goals")}>
                 Cancel
               </Button>
               <Button onClick={handleSubmit} disabled={!calculationResult || isSubmitting}>

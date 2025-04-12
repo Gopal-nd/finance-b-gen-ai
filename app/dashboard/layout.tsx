@@ -21,6 +21,7 @@ import {
   BanknoteArrowUp,
   Calculator,
   Goal,
+  GraduationCap,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -60,6 +61,14 @@ export default function Component({ children }: { children: React.ReactNode }) {
         >
           <UserRound    className="h-5 w-5 text-primary" />
           <span>Profile</span>
+        </Link>
+        <Link
+          href="/dashboard/learn"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <GraduationCap    className="h-5 w-5 text-primary" />
+          <span>learn</span>
         </Link>
         <Link
           href="/dashboard/recommend"
