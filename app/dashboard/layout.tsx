@@ -20,6 +20,7 @@ import {
   UserRound,
   BanknoteArrowUp,
   Calculator,
+  Goal,
 } from "lucide-react";
 import NavbarProfile from "@/components/NavbarProfile";
 import { authClient } from "@/lib/auth-client";
@@ -69,6 +70,14 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <span>AI Recommand</span>
         </Link>
         <Link
+          href="/dashboard/goals"
+          className="flex items-center space-x-2 px-4 py-2 rounded-lg"
+          onClick={handleLinkClick}
+        >
+          <Goal      className="h-5 w-5 text-primary" />
+          <span>Goals</span>
+        </Link>
+        <Link
           href="/dashboard/chat"
           className="flex items-center space-x-2 px-4 py-2 rounded-lg"
           onClick={handleLinkClick}
@@ -102,8 +111,8 @@ export default function Component({ children }: { children: React.ReactNode }) {
           <span>My Account</span>
         </Link>
       </div>
-      <div className="flex items-start">
-       <Button onClick={async()=>{
+      <div className="flex items-center">
+     {isSidebarOpen &&  <Button onClick={async()=>{
                await authClient.signOut({
                  fetchOptions: {
                    onSuccess: () => {
@@ -113,7 +122,7 @@ export default function Component({ children }: { children: React.ReactNode }) {
                });
              }}>
                Logout
-             </Button>
+             </Button>}
       </div>
     </nav>
   );

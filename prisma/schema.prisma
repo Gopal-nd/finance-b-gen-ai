@@ -43,9 +43,53 @@ model User {
   accounts      Account[]
 
   @@unique([email])
+  userGoals   Goal[]
   @@map("user")
  chatSessions ChatSession[]
 }
+
+model Goal {
+  id             String   @id @default(cuid())
+  userId         String
+  name           String
+  targetAmount   Int
+  durationMonths Int
+  monthlySIP     Int
+  suggestedPlan  String
+  reasoning      String
+  createdAt      DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id])
+  
+  // New fields
+  isCompleted    Boolean  @default(false)
+  emoji          String   @default("💰")
+  progress       Int      @default(0)
+  chatMessages   GoalChat[]
+  progressData   GoalProgress[]
+}
+
+// New model for goal-specific chat messages
+model GoalChat {
+  id          String   @id @default(cuid())
+  goalId      String
+  question    String   @db.Text
+  response    String   @db.Text
+  createdAt   DateTime @default(now())
+  
+  goal        Goal     @relation(fields: [goalId], references: [id], onDelete: Cascade)
+}
+
+// New model for tracking monthly SIP payments
+model GoalProgress {
+  id          String   @id @default(cuid())
+  goalId      String
+  month       String   // Format: "MMM YYYY"
+  completed   Boolean  @default(false)
+  paymentDate DateTime?
+  
+  goal        Goal     @relation(fields: [goalId], references: [id], onDelete: Cascade)
+}
+
 
 model Recommendation {
   id          String   @id @default(cuid())
