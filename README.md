@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 FinGenAI — Your GenAI-Powered Financial Assistant
 
-## Getting Started
 
-First, run the development server:
+FinGenAI is an AI-powered voice + multilingual financial assistant designed to simplify investing for every Indian. Built in just 24 hours at **CODE CARNAGE**, a hackathon hosted by **SJB Institute of Technology**, this project helps users learn, plan, and invest — all in their own language, powered by GenAI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Live Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔗 [Try FinGenie Now](https://finance-b-gen-ai.vercel.app)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📦 [GitHub Repo](https://github.com/Gopal-nd/finance-b-gen-ai)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 🧠 **Chat with an AI Assistant** powered by **Google Gemini Pro**
+- 🗣️ **Voice Input + Text-to-Speech Output**
+- 🌐 **Multilingual Support** (English, Hindi, Kannada, Tamil...)
+- 🎯 **SIP Goal Planner** — plan how much to invest monthly
+- 🎁 **Smart Product Recommender** based on age, risk, and goals
+- 📘 **Interactive Learning Module** with AI-generated quizzes
+- 📊 **Dashboard** with your chat history, goals, progress
+- 🔐 **Secure Authentication** using **BetterAuth**
+- 📱 Fully responsive with smooth transitions + animations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧰 Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Layer       | Tech |
+|-------------|------|
+| **Frontend** | Next.js 15 App Router, Tailwind CSS, **shadcn/ui** |
+| **Backend**  | Next.js API Routes, Prisma ORM |
+| **Database** | PostgreSQL (Railway or NeonDB) |
+| **Auth**     | **BetterAuth**  |
+| **AI Model** | Google **Gemini Pro API** |
+| **Extras**   | Web Speech API, React Hook Form, Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
